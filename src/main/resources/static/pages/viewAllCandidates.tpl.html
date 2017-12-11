@@ -1,0 +1,41 @@
+<div ng-controller="ViewAllCandidatesCtrl as viewAllCandidatesCtrl">
+	<div class="data-loading" ng-show="dataLoading">
+ 		<i class="fa fa-refresh fa-spin fa-5x "></i>	
+ 	</div>
+
+	<div class="row" ng-hide="dataLoading">				
+		<div class="col-md-12">
+			<label>Search: <input class="form-control" ng-model="searchText"></label>
+		</div>
+	</div>
+	
+	<div class="row" ng-hide="dataLoading">				
+		<div class="col-md-12">
+		
+	 	<table class="table table-striped">
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th></th>
+			
+			</tr>		
+			
+			<tr dir-paginate="candidate in candidates | filter:searchFilter | itemsPerPage: 5">
+			    <td>{{ candidate.firstName }}</td>
+			    <td>{{ candidate.lastName }}</td>
+				<td>{{ candidate.email}}</td>
+				<td>{{ candidate.Phone}}</td>
+				<td>
+					<a href="resume/{{ candidate.resumeS3Key}}">
+						<i class="fa fa-download" aria-hidden="true" style="font-size:100px"></i>
+					</a>
+				</td>
+				
+			</tr>
+		</table>
+		<dir-pagination-controls></dir-pagination-controls>
+	</div>
+	</div>	
+</div>
