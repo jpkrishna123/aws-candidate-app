@@ -1,4 +1,4 @@
-# aws-candidate-app
+# aws candidate app
 
 Build a sample web UI app to input ‘candidate info’ and a resume in a word file attachment.
 
